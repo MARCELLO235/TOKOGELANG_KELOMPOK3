@@ -1,0 +1,81 @@
+Task 4a – Key Things to Memorise
+
+Please use code examples to illustrate answers
+
+Libraries and Imports
+
+How do we import MatPlotLib, Pandas, and Numpy?
+
+Import pandas as pd
+
+Import matplotlib.pyplot as plt
+
+Import numpy as np
+
+Are there any other libraries you know how to import?
+
+Import scrapy as sp
+
+How do we read a CSV file and store it in a dataframe?
+
+Df = pd.read_csv("Task4a_data")
+
+How do we import an Excel file?
+
+Df = pdf.read_excel("Task4a_Data")
+
+Selecting Data
+
+How do we extract all data from one column? What does that leave us with?
+
+type_time_df = df[(df["Post Type"])
+
+two types:
+
+type_time_df = df[(df["Post Type"]) & (df["Time"])]
+
+How do we extract specific data from one column? What does that leave us with?
+
+type_time_df = df[(df["Post Type"] == Choice)
+
+How do we add up row data? What does that leave us with?
+
+adTotalRows = ad_df.sum(axis=1, numeric_only=True)
+
+What do we need to add to avoid summing non-numeric data?
+
+numeric_only=True
+
+How do we add up a final sum of all row data?
+
+finalAD = adTotalRows.sum()
+
+How do we select specific data based upon user input e.g. post type and post time?
+
+type_time_df = df[(df["Post Type"] == Choice) & (df["Time"] == timeframe)]
+
+How do we sum columns of data?
+
+Axis = 0 is column
+
+Axis = 1 is row
+
+ad_df = df[df["Post Type"] == "Advertisement"]
+
+adTotalRows = ad_df.sum(axis=0, numeric_only=True)
+
+finalAD = adTotalRows.sum()
+
+How do we create an average of all row/column data?
+
+def get_avg_data():
+
+    df = pd.read_csv("Task4a_data.csv")
+
+    extract = df.groupby(['Date'], as_index=False)[avg_choice].mean()
+
+    extract_no_index = extract.to_string(index=False)
+
+    print("Here is the average number of {} each day during the campaign:".format(avg_choice))
+
+    return extract_no_index
